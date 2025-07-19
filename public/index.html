@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starburst Drone Fuel Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Starburst Drone Fuel Cost Calculator</h1>
+    
+    <div class="main-layout">
+      <div class="input-section">
+      <div class="input-subsection">
+        <h4 class="subsection-title">⏱️ Time Configuration</h4>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="targetHours">Target Time (hours):</label>
+            <input type="number" id="targetHours" value="168" min="0.1" step="0.1" placeholder="168">
+          </div>
+          
+          <div class="input-group">
+            <label for="timeAdded">Time Added Per Fuel Use:</label>
+            <input type="text" id="timeAdded" value="2:39" placeholder="2:39">
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-subsection">
+        <h4 class="subsection-title">⚙️ Game Settings</h4>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="saveChance"><img src="assets/fuel-icon.png" alt="fuel" style="width:16px;height:16px;vertical-align:middle;"> Fuel Save Chance (%):</label>
+            <input type="number" id="saveChance" value="27.5" min="0" max="100" step="0.1" placeholder="27.5">
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-subsection">
+        <h4 class="subsection-title">💰 Cost Settings</h4>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="fuelCostGems"><img src="assets/gem-icon.png" alt="gem" style="width:16px;height:16px;vertical-align:middle;"> Fuel Cost (gems):</label>
+            <input type="number" id="fuelCostGems" value="5" min="1" placeholder="5">
+          </div>
+          
+          <div class="input-group">
+            <label for="fuelCostCoal"><img src="assets/coal-icon.png" alt="coal" style="width:16px;height:16px;vertical-align:middle;"> Fuel Cost (coal):</label>
+            <input type="number" id="fuelCostCoal" value="50" min="1" placeholder="50">
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="results-section">
+        <h3>📊 Results</h3>
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="result-label">Effective seconds per fuel:</span>
+            <span class="result-value" id="effectiveSeconds">--</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Fuel units required:</span>
+            <span class="result-value"><img src="assets/fuel-icon.png" alt="fuel" style="width:16px;height:16px;vertical-align:middle;margin-right:6px;"><span id="fuelRequired">--</span></span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Total cost in gems:</span>
+            <span class="result-value"><img src="assets/gem-icon.png" alt="gem" style="width:16px;height:16px;vertical-align:middle;margin-right:6px;"><span id="totalGems">--</span></span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Total cost in coal:</span>
+            <span class="result-value"><img src="assets/coal-icon.png" alt="coal" style="width:16px;height:16px;vertical-align:middle;margin-right:6px;"><span id="totalCoal">--</span></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="charts-section">
+        <h3>📈 Interactive Charts</h3>
+        <div class="charts-container">
+          <div class="chart-container">
+            <canvas id="saveChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <canvas id="durationChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../src/script.js"></script>
+</body>
+</html>

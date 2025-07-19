@@ -83,8 +83,8 @@ function calculateFuelCost() {
     updateResults(
       effectiveSecondsPerFuel.toFixed(1) + 's',
       fuelUnitsRequired.toLocaleString(),
-      totalGemsRequired.toLocaleString() + ' 💎',
-      totalCoalRequired.toLocaleString() + ' ⚫'
+      totalGemsRequired.toLocaleString(),
+      totalCoalRequired.toLocaleString()
     );
     
     // Update charts
@@ -167,7 +167,7 @@ function renderSyncedCharts(hours, durationSeconds, fuelCostGems, baseSavePercen
       interaction: { mode: 'index', intersect: false },
       scales: {
         y: {
-          title: { display: true, text: 'Gem Cost 💎' },
+          title: { display: true, text: 'Gem Cost' },
           beginAtZero: true,
           grid: { color: 'rgba(0,0,0,0.1)' }
         },
@@ -212,7 +212,7 @@ function renderSyncedCharts(hours, durationSeconds, fuelCostGems, baseSavePercen
       interaction: { mode: 'index', intersect: false },
       scales: {
         y: {
-          title: { display: true, text: 'Gem Cost 💎' },
+          title: { display: true, text: 'Gem Cost' },
           beginAtZero: true,
           grid: { color: 'rgba(0,0,0,0.1)' }
         },
@@ -253,7 +253,7 @@ function syncTooltip(context, otherChart) {
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
   // Set up event listeners
-  document.getElementById('calculateBtn').addEventListener('click', calculateFuelCost);
+  // Note: No calculate button needed - calculations happen on input change
   
   // Auto-calculate on input change
   ['targetHours', 'timeAdded', 'saveChance', 'fuelCostGems', 'fuelCostCoal'].forEach(id => {
